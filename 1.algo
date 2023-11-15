@@ -1,0 +1,48 @@
+procedure fill(T:ARRAY_OF,l:INTEGER):
+VAR
+    i:INTEGER;
+BEGIN
+    for i from 0 to l-1 do:
+        read(T[i])
+    end for
+END
+    
+function distinct(x,T:ARRAY_OF,):boolean
+
+VAR
+    ok:boolean;
+    i:INTEGER;
+BEGIN
+    ok:=TRUE
+    i:=0
+    while (ok=True and i<length.T2-1):
+        ok:=(x<>T[i])
+        i:=i+1
+        
+    end while
+    return ok           
+END
+ALGORITHM check1
+VAR
+    s,j,i,l1,l2:INTEGER;
+    T1:ARRAY_OF INTEGER;
+    T2:ARRAY_OF INTEGER;
+
+BEGIN
+    read(l1)
+    read(l2)
+    s:=0;
+    fill(T1,l1);
+    fill(T2,l2);
+    for i FROM 0 to length.T1:
+        if distinct(T1[i],T2):
+            s:=s+T1[i]
+        end if
+    end for
+    for j FROM 0 to length.T2:
+        if distinct(T2[i],T1):
+            s:=s+T2[i]
+        end if
+    end for
+    write(s)
+END
